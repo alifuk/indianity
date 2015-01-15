@@ -164,19 +164,19 @@ dd {
 
 }
 
-.stats {
+.stats , #stats{
 	text-decoration: none;
 	color: #999;
 font-weight: bold;
 margin: 10px 0;
 }
 
-.stats a{
+.stats a , #stats a{
 	text-decoration: none;	
 	color: #999;
 }
 
-.stats a:hover{
+.stats a:hover , #stats a:hover{
 	text-decoration: underline;
 }
 .votes{
@@ -223,14 +223,14 @@ border: 1px solid #999;
 .sharebutton{
 	background: #3b5998 url(./images/sharebutton.png) 0 0 no-repeat;
 	display: block;
-color: #fff;
+	color: #fff;
 font-weight: bold;
 height: 34px;
 line-height: 34px;
 padding: 0 15px 0 34px;
 border-radius: 3px;
 text-align: center;
-width: 70px;
+width: 150px;
 float: right;
 }
 

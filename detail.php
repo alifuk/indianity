@@ -269,7 +269,8 @@ include("cookies.php");
 			GROUP BY prispevekId  
 			) as komentare ON komentare.prispevekId = prispevky.Id
 
-		WHERE Id='$Id'") ;
+		WHERE Id='$Id'
+		LIMIT 1") ;
 
 		$res->data_seek(0);
 		while ($row = $res->fetch_assoc()) {
@@ -293,7 +294,7 @@ include("cookies.php");
 			}
 
 			echo "<div class='prispevekDetail'><h3>". $row["nadpis"]."</h3>";
-			echo "<img src='pics/". $row["foto"].".jpg' class='detailpic'>  <div class='stats'><a href='detail.php?Id=".$row["Id"]."' class='votes'>". $row["votes"]."  ".$votesText."</a> · ";
+			echo "<img src='pics/". $row["foto"].".jpg' class='detailpic'>  <div id='stats'><a href='detail.php?Id=".$row["Id"]."' class='votes'>". $row["votes"]."  ".$votesText."</a> · ";
 			echo $row["komentaru"]. " ".$komentaruText ."</div>  ";
 			echo "<div class='votes bigvotes'><span class='upvote' idecko='". $row["Id"]."'></span><span class='downvote' idecko='". $row["Id"]."'></span><a href='detail.php?Id=".$row["Id"]."#komentare' class='doKomentu'> </a>";
 			echo "<span class='sharebutton bigsharebutton' postId='". $row["Id"]."' idecko='". $row["foto"]."' nadpis='". $row["nadpis"]."'>Sdílet na Facebook</span></div></div>";

@@ -54,10 +54,9 @@ include("cookies.php");
 		$.ajaxSetup({ cache: false });
 
 
-		var voleno = 0;
 		$(".upvote").click(function(){
-			if(voleno == 0){
-				/*voleno = 1;*/
+			if($(this).hasClass( "clickedUp" ) == false && $( ".downvote" ).eq( $(".upvote").index(this) ).hasClass( "clickedDown" ) == false   ) {
+
 				vote($(this).attr("idecko"), "1");
 				$(this).addClass("clickedUp");
 
@@ -66,11 +65,12 @@ include("cookies.php");
 				var numma = parseInt(res[0]) +1;
 				$("a[idecko='" + $(this).attr("idecko") + "']").html(numma + " " + res[1]);
 			}
+			
+			
 		});
 
 		$(".downvote").click(function(){
-			if(voleno == 0){
-				/*voleno = 1;*/
+			if($(this).hasClass( "clickedDown" ) == false && $( ".upvote" ).eq( $(".downvote").index(this) ).hasClass( "clickedUp" ) == false) {
 				vote($(this).attr("idecko"), "-1");
 				$(this).addClass("clickedDown");
 
@@ -87,12 +87,12 @@ include("cookies.php");
 			var vystup;
 			$.ajax({ url: 'loadnext.php',
 
-				data: {lastId: $("#next").attr("lastId"), tag: $("#next").attr("tag") },
+				data: {lastId: $(".empty").attr("lastId"), tag: $(".empty").attr("tag") },
 				type: 'POST',
 				success: function(output) {	
 					vystup = output.split("kurvaaaa");				
-					$(".empty").append(vystup[0]);
-					$("#next").attr("lastid", vystup[1]);
+					$(".empty").append(vystup[0]).attr("lastid", vystup[1]);
+					//$("#next").attr("lastid", vystup[1]);
 					nacitani = false;
 				}
 			});
@@ -104,15 +104,17 @@ include("cookies.php");
 			nactidalsi();		
 			
 		});*/
-		var nacitani = false;
+var nacitani = false;
 
-		$(window).scroll(function() {
+$(window).scroll(function() {
 			var y_scroll_pos = window.pageYOffset;          // set to whatever you want it to be
 
-    		if(y_scroll_pos > $( ".predposledni" ).last().position().top && nacitani == false) {
-        		nactidalsi();
-        		nacitani = true;
-    		}
+			if(y_scroll_pos > $( ".predposledni" ).last().position().top && nacitani == false) {
+
+				nactidalsi();
+				nacitani = true;
+
+			}
 			
 
 		});
@@ -120,54 +122,64 @@ include("cookies.php");
 
 
 
-		function vote(prispevekId, type){
+function vote(prispevekId, type){
 
-			$.ajax({ url: 'addvote.php',
-				data: {prispevekId: prispevekId, type: type},
-				type: 'POST',
-				
-			});
-		}
+	$.ajax({ url: 'addvote.php',
+		data: {prispevekId: prispevekId, type: type},
+		type: 'POST',
+
+	});
+}
 
 
 
-		$(document).keydown(function(e) {	
+$(document).keydown(function(e) {	
 
   			if(e.which == 37 || e.which == 75) { // left arrow  or k pressed  
 
-
   				var y_scroll_pos = window.pageYOffset; 
-  				$( ".prispevek" ).each(function( index, element ) {
+  				//var y_scroll_pos = window.pageYOffset; 
+  				$($( ".prispevek" ).get().reverse()).each(function( index, element ) {
     // element == this
     //$( element ).css( "backgroundColor", "yellow" );
-    				if ( y_scroll_pos +60  < $( this ).position().top ) {
+    if ( y_scroll_pos +60  > $( this ).position().top ) {
       					//alert(index);
 
       					$('html, body').animate({
-    						scrollTop: $(element).offset().top -60
-						}, 100);
+      						scrollTop: $(element).offset().top -60
+      					}, 100);
 
       					return false;
-    				}
-  				});
-
-
-
-
+      				}
+      			});
   				
   			}
 
 
-  			else if(e.which == 39 || e.which == 74) { // right  or j arrow pressed   
-  				$('html, body').animate({
-    				scrollTop: $(".prispevek").offset().top
-				}, 100);
+  			else if(e.which == 39 || e.which == 74) { // right  or j arrow pressed  
+
+  				var y_scroll_pos = window.pageYOffset; 
+  				//var y_scroll_pos = window.pageYOffset; 
+  				$( ".prispevek" ).each(function( index, element ) {
+    // element == this
+    //$( element ).css( "backgroundColor", "yellow" );
+    if ( y_scroll_pos +100  < $( this ).position().top ) {
+      					//alert(index);
+
+      					$('html, body').animate({
+      						scrollTop: $(element).offset().top -60
+      					}, 100);
+
+      					return false;
+      				}
+      			});
+
   			}
   		});
 
 
 
-	});
+});
 </script>
 
 
@@ -263,14 +275,15 @@ if ($result->num_rows > 0) {
 
 		echo "<div class='prispevek ". $predposledni ."'><h3><a href='detail.php?Id=". $row["Id"]."'    > ". $row["nadpis"]."</a></h3>";
 		echo "<a href='detail.php?Id=". $row["Id"]."'    ><img src='pics/". $row["foto"].".jpg' class='pic'></a>  <div class='stats'><a href='detail.php?Id=".$row["Id"]."' class='votes' idecko='". $row["Id"]."'>". $row["votes"]." ".$votesText."</a>";
-		echo " · <a href='detail.php?Id=".$row["Id"]."#komentare' class='komentaru'>". $row["komentaru"]. " ".$komentaruText ."</a></div>  ";
-		echo "<div class='votes'><span class='upvote' idecko='". $row["Id"]."'></span><span class='downvote' idecko='". $row["Id"]."'></span><a href='detail.php?Id=".$row["Id"]."#komentare' class='doKomentu'> </a>";
-		echo "<span class='sharebutton' postId='". $row["Id"]."'  idecko='". $row["foto"]."' nadpis='". $row["nadpis"]."'>Facebook</span></div></div>";
+		echo " · <a href='detail.php?Id=".$row["Id"]."#stats' class='komentaru'>". $row["komentaru"]. " ".$komentaruText ."</a></div>  ";
+		echo "<div class='votes'><span class='upvote' idecko='". $row["Id"]."'></span><span class='downvote' idecko='". $row["Id"]."'></span><a href='detail.php?Id=".$row["Id"]."#stats' class='doKomentu'> </a>";
+		echo "<span class='sharebutton ' postId='". $row["Id"]."'  idecko='". $row["foto"]."' nadpis='". $row["nadpis"]."'>Sdílet na Facebook</span></div></div>";
 
-		/*if($count == 10){
-			echo "<div class='empty'></div>";
-			echo "<span id='next' lastid='". $row["Id"]."' tag='".$dbtag."'>Načíst další</span>";
-		}*/
+		if($count == 10){
+			echo "<div class='empty' lastid='". $row["Id"]."' tag='".$dbtag."'></div>";
+
+			//echo "<span id='next' lastid='". $row["Id"]."' tag='".$dbtag."'>Načíst další</span>";
+		}
 
 	}
 } else {
