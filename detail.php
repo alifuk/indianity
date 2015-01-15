@@ -213,10 +213,10 @@ include("cookies.php");
 		$(document).keydown(function(e) {
 			
 
-  			if(e.which == 37 || e.which == 75) { // left or k  pressed    				 
+  			if(e.which == 37 || e.which == 75 ) { // left or k  pressed    				 
   				window.location.href = './detail.php?Id=<?php echo $nextId; ?>';
   			}
-  			else if(e.which == 39 || e.which == 74) { // right  or j  pressed   
+  			else if(e.which == 39 || e.which == 74 ) { // right  or j  pressed   
   				window.location.href = './detail.php?Id=<?php echo $lastId; ?>';
   			}
   		});

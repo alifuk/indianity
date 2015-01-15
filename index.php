@@ -91,7 +91,7 @@ include("cookies.php");
 				type: 'POST',
 				success: function(output) {	
 					vystup = output.split("kurvaaaa");				
-					$(".empty").append(vystup[0]).attr("lastid", vystup[1]);
+					$(".empty").attr("lastid", vystup[1]).append(vystup[0]);
 					//$("#next").attr("lastid", vystup[1]);
 					nacitani = false;
 				}
@@ -135,7 +135,7 @@ function vote(prispevekId, type){
 
 $(document).keydown(function(e) {	
 
-  			if(e.which == 37 || e.which == 75) { // left arrow  or k pressed  
+  			if(e.which == 37  || e.which == 75 ) { // left arrow  or k pressed  
 
   				var y_scroll_pos = window.pageYOffset; 
   				//var y_scroll_pos = window.pageYOffset; 
@@ -156,7 +156,7 @@ $(document).keydown(function(e) {
   			}
 
 
-  			else if(e.which == 39 || e.which == 74) { // right  or j arrow pressed  
+  			else if(e.which == 39 || e.which == 74 ) { // right  or j arrow pressed  
 
   				var y_scroll_pos = window.pageYOffset; 
   				//var y_scroll_pos = window.pageYOffset; 
@@ -209,8 +209,9 @@ $(document).keydown(function(e) {
 
 
 		</ul>
-
 		<span><a href="upload/uploadpage.php" id="nahraj">Nahraj</a></span>
+		<div class="fb-like" data-href="https://www.facebook.com/cz9gag.cz" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+		
 	</div>
 </div>
 

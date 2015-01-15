@@ -56,14 +56,15 @@ if ($result->num_rows > 0) {
 			$komentaruText = "komentáře";
 		}
 		$predposledni = "";
-		if($count = 8){
+		if($count == 8){
 			$predposledni = "predposledni";
 		}
 		echo "<div class='prispevek ". $predposledni ."'><h3><a href='detail.php?Id=". $row["Id"]."'    > ". $row["nadpis"]."</a></h3>";
 		echo "<a href='detail.php?Id=". $row["Id"]."'    ><img src='pics/". $row["foto"].".jpg' class='pic'></a>  <div class='stats'><a href='detail.php?Id=".$row["Id"]."' class='votes' idecko='". $row["Id"]."'>". $row["votes"]." ".$votesText."</a>";
 		echo " · <a href='detail.php?Id=".$row["Id"]."#komentare' class='komentaru'>". $row["komentaru"]. " ".$komentaruText ."</a></div>  ";
 		echo "<div class='votes'><span class='upvote' idecko='". $row["Id"]."'></span><span class='downvote' idecko='". $row["Id"]."'></span><a href='detail.php?Id=".$row["Id"]."#komentare' class='doKomentu'> </a>";
-		//echo "<span class='sharebutton' postId='". $row["Id"]."'  idecko='". $row["foto"]."' nadpis='". $row["nadpis"]."'>Facebook</span></div></div>";
+		//echo "<span class='sharebutton' postId='". $row["Id"]."'  idecko='". $row["foto"]."' nadpis='". $row["nadpis"]."'>Facebook</span>";
+		echo "</div></div>";
 		
 		$lastnumma = $row["Id"];
 		$count++;
