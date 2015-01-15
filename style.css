@@ -1,0 +1,430 @@
+body{
+	font: 13px "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;	
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+	padding: 0;
+	padding-top: 58px;
+	outline: none;
+}
+h3{
+	margin-bottom: 10px;
+}
+
+h3 {
+	font-size: 22px;	
+	color: #000;	
+	word-wrap: break-word;
+    display: block;
+}
+
+h3 a{
+	font-size: 22px;	
+	text-decoration: none;
+	color: #000;	
+	word-wrap: break-word;
+    display: block;
+}
+
+h3 a:first-letter{
+	text-transform: capitalize;
+}
+h3 a:hover{
+	color: #0087F7;
+}
+
+h4 {
+	margin: 0;
+}
+h4 a {
+	margin-bottom: 17px;
+	text-decoration: none;
+	font-size: 15px;
+	line-height: 1.1em;
+    display: block;
+    padding-top: 2px;
+    color: inherit;
+	text-align: center;
+}
+
+h4 a:first-letter{
+	text-transform: capitalize;
+}
+
+h4 a:hover  {
+	color: #0087F7;
+}
+
+
+
+#container{
+	margin: 0 auto;
+}
+
+
+
+
+#top{
+	background-color: #f4f4f4;
+	padding: 0;
+	border-bottom: 1px solid #ddd;
+	top: 0px;
+	position: fixed;
+	z-index: 3;
+	width: 100%;
+}
+
+#logo{
+	float: left;
+}
+
+#menu{
+	padding-top: 5px;
+	padding-bottom: 36px;
+	width: 950px;
+	margin: 0 auto;		
+}
+
+#menu a{
+	text-decoration: none;
+}
+
+#menu li{	
+	float: left;
+	padding: 0 12px;
+	line-height: 33px;
+	display: block;
+	border-bottom: 3px solid transparent;
+	height: 33px;
+}
+
+#menu li a{		
+	color: #777;
+}
+
+#menu li a:hover{		
+	color: #000;
+}
+
+ .active{	
+	border-color: #ee0005 !important;
+	color: #ee0005 !important;
+	font-weight: bold !important;
+}
+
+
+
+
+#menu ul{
+	/*overflow: hidden;*/
+	list-style-type: none;	
+	margin: 0;
+	float: left;
+	padding: 0;
+}
+
+dd {
+    margin: 0;
+}
+
+
+
+#nahraj{
+	color: #fff;
+	width:39px;
+	height: 28px;
+	padding: 0 12px;
+	border-radius: 3px;
+	background-color: #ff3c1f;
+	float: right;
+	outline: none;
+	-webkit-font-smoothing: antialiased;
+	font-weight: bold;
+	margin-right: 10px;
+	margin-top: 2px;
+	line-height: 30px;
+}
+
+#nahraj:hover{
+	background-color: #FF5D45;
+}
+
+#levySloupec{
+	float: left;
+}
+
+.prispevek {
+	width: 540px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 25px;
+
+}
+
+.pic {
+	width: 450px;
+
+}
+
+.stats {
+	text-decoration: none;
+	color: #999;
+font-weight: bold;
+margin: 10px 0;
+}
+
+.stats a{
+	text-decoration: none;	
+	color: #999;
+}
+
+.stats a:hover{
+	text-decoration: underline;
+}
+.votes{
+	width: 450px;
+}
+
+.upvote , .downvote, .doKomentu{
+	display: inline-block;
+border: 1px solid #ddd;
+border-radius: 3px;
+width: 40px;
+height: 31px;
+margin-right: 10px;
+padding: 0;
+cursor: pointer;
+}
+
+.upvote:hover , .downvote:hover, .doKomentu:hover{
+border: 1px solid #999;
+}
+
+.upvote {	
+	background: url(images/vote.png) no-repeat -1px 0;
+}
+
+.downvote {	
+	background: url(images/vote.png) no-repeat -1px -32px;
+}
+
+.clickedUp {	/*když je zmášklý vote */
+	background:url(images/vote.png) no-repeat -42px 0;
+}
+
+.clickedDown {	/*když je zmášklý vote */
+	background:url(images/vote.png) no-repeat -42px -32px;
+}
+
+
+.doKomentu {	
+	background: url(images/buttons.png) no-repeat 0px -32px;
+}
+
+
+.sharebutton{
+	background: #3b5998 url(./images/sharebutton.png) 0 0 no-repeat;
+	display: block;
+color: #fff;
+font-weight: bold;
+height: 34px;
+line-height: 34px;
+padding: 0 15px 0 34px;
+border-radius: 3px;
+text-align: center;
+width: 70px;
+float: right;
+}
+
+.sharebutton:hover{
+	background: #4c70ba url(./images/sharebutton.png) 0 0 no-repeat;
+}
+
+#next{
+
+	display: block;
+	width: 200px;
+	height: 30px;
+	margin: 20px auto 120px auto ;
+	padding: 5px;
+	background: #3b5998;
+	color: #fff;
+	cursor: pointer;
+
+border-radius: 3px;
+line-height: 34px;
+	font-weight: bold;
+
+text-align: center;
+	font-size: 22px;
+}
+
+#next:hover{
+
+	background: #4c70ba;
+}
+
+
+/* Pravý sloupec -------------------------------------------------*/
+
+
+#pravySloupec{
+	float: right;
+padding: 0 0 0 40px;
+width: 250px;
+position: relative;
+}
+
+.sidePrispevek{
+	color: #000;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+
+.sidePrispevek:hover{
+	color: #0087F7;
+}
+
+.sidepic{
+	width: 270px;
+}
+
+
+
+@media screen  and (min-width: 850px) {
+	#container{
+	width: 840px;
+	}
+
+	
+}
+
+@media screen  and (max-width: 850px) {
+	#container{
+	width: 100%;
+	}
+	#pravySloupec{
+		display: none;
+	}
+
+	#levySloupec{
+		width: 100%;
+	}
+
+	.prispevek{
+		width: 90%;
+		margin: 0 auto;
+		padding: 0 auto;
+	}
+
+	.votes, #menu{
+		width: 100%;
+	}
+
+	 .pic{
+	 	max-width: 100%;
+  		max-height: 80%;
+	 }
+
+
+}
+
+
+
+
+/* Detail page */
+#detail{
+	float: left;
+	display: block;
+	width: 540px;
+}
+
+.prispevekDetail{	
+	border-bottom: 1px solid #eee;
+	padding-bottom: 25px;
+}
+
+.detailpic {
+	max-width: 550px;
+	width: 100%;
+}
+
+.bigvotes{
+	width: 100%;
+}
+
+.bigsharebutton{
+
+	width: 230px;
+}
+
+#komentare{
+}
+
+#areakoment{
+	width: 100%;
+margin: 0;
+margin-bottom: 10px;
+height: 50px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+border-radius: 0;
+line-height: 1.6em;
+cursor: pointer;
+display: block;
+border: 1px solid #ccc;
+outline: 0;
+ resize: none;
+ color: #aaa;
+ padding: 5px;	
+ font: 13px "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;	
+	-webkit-font-smoothing: antialiased;
+}
+
+#textnick{
+	 font: 13px "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;	
+	-webkit-font-smoothing: antialiased;
+
+ color: #aaa;
+border: 1px solid #ccc;
+padding: 4px;
+cursor: pointer;
+
+	height: 30px;
+}
+
+#buttonodeslat{
+	width: 100px;
+	height: 29px;
+	background-color: #4c70ba;
+cursor: pointer;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+
+box-sizing: content-box;
+margin: 0;
+border: 0;
+border-radius: 3px;
+font: 13px "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;	
+	-webkit-font-smoothing: antialiased;
+	color: #fff;
+
+}
+
+#buttonodeslat:hover{
+	background-color: #3b5998;
+}
+
+
+
+@media screen  and (max-width: 850px) {
+	
+	 #detail{
+		width: 90%;
+		padding: 0% 5%;
+	 }
+
+	 #container{
+	 	margin: 0;
+	 }
+
+}
