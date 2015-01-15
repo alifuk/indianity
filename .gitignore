@@ -18,6 +18,7 @@ local.properties
 *.jpg
 *.jpeg
 *.png
+connect.php
 
 # External tool builders
 .externalToolBuilders/
