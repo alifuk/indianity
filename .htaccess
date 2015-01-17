@@ -1,0 +1,5 @@
+ErrorDocument 404 /cz9gag/index.php
+
+RewriteEngine On
+RewriteRule  (index) index.php
+RewriteRule gag/(\d*) detail.php?Id=$1

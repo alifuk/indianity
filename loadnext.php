@@ -1,4 +1,5 @@
-<?php
+<?php 
+include_once("analytics.php");
 include("connect.php");
 include("cookies.php");
 
