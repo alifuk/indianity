@@ -221,7 +221,9 @@ include("cookies.php");
   			}
   		});
 
-
+		$("#nextPost").click(function(){
+			window.location.href = './detail.php?Id=<?php echo $lastId; ?>';
+		});
 
 
 
@@ -293,7 +295,7 @@ include("cookies.php");
 				$komentaruText = "komentáře";
 			}
 
-			echo "<div class='prispevekDetail'><h3>". $row["nadpis"]."</h3>";
+			echo "<div class='prispevekDetail'><div Id='nextPost'><span Id='nextPostBox'>Další</span><span Id='nextPostArrow'></span></div><div Id='floatLeft'><h3>". $row["nadpis"]."</h3></div> ";
 			echo "<img src='pics/". $row["foto"].".jpg' class='detailpic'>  <div id='stats'><a href='detail.php?Id=".$row["Id"]."' class='votes'>". $row["votes"]."  ".$votesText."</a> · ";
 			echo $row["komentaru"]. " ".$komentaruText ."</div>  ";
 			echo "<div class='votes bigvotes'><span class='upvote' idecko='". $row["Id"]."'></span><span class='downvote' idecko='". $row["Id"]."'></span><a href='detail.php?Id=".$row["Id"]."#komentare' class='doKomentu'> </a>";
